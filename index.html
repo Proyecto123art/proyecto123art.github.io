@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Boyas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/gaugeJS@1.3.7/dist/gauge.min.js"></script>
+</head>
+<body>
+    <div id="contenedor">
+        <div class="zona">
+            <h2>Boya 1</h2>
+            <div class="indicadores">
+                <div class="indicador">
+                    <canvas id="gaugeTemperatura1" width="200" height="200"></canvas>
+                    <h1 id="temperatura-valor1"></h1>
+                </div>
+                <div class="indicador">
+                    <canvas id="gaugePresion1" width="200" height="200"></canvas>
+                    <h1 id="presion-valor1"></h1>
+                </div>
+            </div>
+            <div class="info">
+                <p>Altitud: <span id="altitud-valor1"></span> m</p>
+                <p>Humedad: <span id="humedad-valor1"></span> %</p>
+            </div>
+        </div>
+        
+        <div class="zona">
+            <h2>Boya 2</h2>
+            <div class="indicadores">
+                <div class="indicador">
+                    <canvas id="gaugeTemperatura2" width="200" height="200"></canvas>
+                    <h1 id="temperatura-valor2"></h1>
+                </div>
+                <div class="indicador">
+                    <canvas id="gaugePresion2" width="200" height="200"></canvas>
+                    <h1 id="presion-valor2"></h1>
+                </div>
+            </div>
+            <div class="info">
+                <p>Altitud: <span id="altitud-valor2"></span> m</p>
+                <p>Humedad: <span id="humedad-valor2"></span> %</p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
