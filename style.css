@@ -1,48 +1,144 @@
-* {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Contenedor principal */
+#contenedor-principal {
+    display: flex;
+    flex-direction: row; /* Dirección de fila por defecto */
+    justify-content: flex-start; /* Alineación a la izquierda */
+    align-items: flex-start; /* Alinea el contenido en la parte superior */
+    gap: 3rem; /* Añade espacio entre la imagen y las columnas */
+    margin: 2rem auto;
+    max-width: 1200px;
+    background-color: #1b1b2f; /* Fondo oscuro del contenedor */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-
-body {
-    height: 100vh;
+header{
+    background-color: #0d2e81;
+}
+/* Imagen de la boya a la izquierda */
+#imagen-boya {
+    flex: 1; /* Tamaño flexible */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #3494E6; /* fondo gradiente */
-    background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);
-    background: linear-gradient(to right, #EC6EAD, #3494E6);
 }
 
-#contenedor {
+/* Contenedor de las boyas */
+#contenedor-boyas {
+    flex: 2; /* Mayor ancho para las boyas */
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 90%;
+    justify-content: space-between; /* Separa las columnas de boya 1 y 2 */
+    gap: 2rem;
+    flex-wrap: nowrap; /* Asegura que estén una al lado de la otra en pantallas grandes */
 }
 
-.zona {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+/* Boya 1 */
+#boya1 {
+    background-color: #162447;
+    padding: 1.5rem;
     border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Ajusta el ancho de la columna */
+    transition: transform 0.2s ease;
 }
 
-.indicadores {
-    display: flex;
-    justify-content: space-between;
+#boya1:hover {
+    transform: translateY(-10px);
 }
 
-.indicador {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#boya1 h2 {
+    text-align: center;
+    color: #f0a500;
 }
 
-.info {
-    margin-top: 20px;
+/* Boya 2 */
+#boya2 {
+    background-color: #162447;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Ajusta el ancho de la columna */
+    transition: transform 0.2s ease;
+}
+
+#boya2:hover {
+    transform: translateY(-10px);
+}
+
+#boya2 h2 {
+    text-align: center;
+    color: #f0a500;
+}
+
+/* Estilo de los medidores */
+.medidores {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.medidor {
+    background-color: #3f94e4;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #contenedor-principal {
+        flex-direction: column; /* Cambia a dirección de columna */
+    }
+
+    #imagen-boya {
+        order: -1; /* Mueve la imagen al inicio */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+
+    #contenedor-boyas {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #boya1, #boya2 {
+        width: 100%; /* Boya 1 y Boya 2 se alinean verticalmente */
+        margin-bottom: 20px;
+    }
+
+    h1 { /* Estilo para el encabezado de Monitoreo Climático con Boyas */
+        color: #f0a500; /* Cambia el color del texto */
+    }
+}
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+    #contenedor-principal {
+        flex-direction: column; /* Cambia a dirección de columna */
+        align-items: center; /* Centra los elementos */
+    }
+
+    #imagen-boya {
+        order: -1; /* Mueve la imagen al inicio */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+
+    #contenedor-boyas {
+        flex-direction: column; /* Alinea las boyas verticalmente */
+        gap: 1rem; /* Espacio entre las boyas */
+        width: 100%; /* Asegura que ocupe todo el ancho */
+    }
+
+    #boya1, #boya2 {
+        width: 100%; /* Boya 1 y Boya 2 se alinean verticalmente */
+    }
+}
+
+@media (max-width: 480px) {
+    /* En pantallas muy pequeñas, las boyas estarán una debajo de la otra */
+    #contenedor-boyas {
+        flex-direction: column; /* Alinea las boyas verticalmente */
+    }
+
+    #boya1, #boya2 {
+        width: 100%; /* Asegura que las boyas ocupen el ancho completo */
+    }
 }
