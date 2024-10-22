@@ -9,7 +9,7 @@ function fetchData() {
         .then(response => response.json())
         .then(data => {
             // Obtener los últimos 5 datos
-            const last5Boyas = data.feeds.slice(-5); // Últimos 5 registros para las tablas
+            const last5Boyas = data.feeds.slice(-5).reverse(); // Últimos 5 registros para las tablas
 
             // Limpiar las tablas antes de agregar nuevos datos
             limpiarTabla('data-table-boya1');
