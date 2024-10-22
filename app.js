@@ -18,10 +18,10 @@ function fetchData() {
             document.getElementById('humedad-valor1').innerText = boya1.field4 + '%';
 
             // Actualizar Boya 2
-            document.getElementById('temperatura-valor2').innerText = boya2.field1 + '°C';
-            document.getElementById('presion-valor2').innerText = boya2.field2 + ' hPa';
-            document.getElementById('altitud-valor2').innerText = boya2.field3 + ' m';
-            document.getElementById('humedad-valor2').innerText = boya2.field4 + '%';
+            document.getElementById('temperatura-valor2').innerText = boya2.field5 + '°C';
+            document.getElementById('presion-valor2').innerText = boya2.field6 + ' hPa';
+            document.getElementById('altitud-valor2').innerText = boya2.field7 + ' m';
+            document.getElementById('humedad-valor2').innerText = boya2.field8 + '%';
 
             // Llenar las tablas con los datos de cada boya
             llenarTablaBoya1(boya1);
@@ -59,10 +59,10 @@ function llenarTablaBoya2(boya2) {
     // Crear la fila para Boya 2
     const row2 = document.createElement('tr');
     row2.innerHTML = `
-        <td>${boya2.field1}°C</td>
-        <td>${boya2.field2} hPa</td>
-        <td>${boya2.field3} m</td>
-        <td>${boya2.field4}%</td>
+        <td>${boya2.field5}°C</td>
+        <td>${boya2.field6} hPa</td>
+        <td>${boya2.field7} m</td>
+        <td>${boya2.field8}%</td>
         <td>${new Date(boya2.created_at).toLocaleString()}</td>
     `;
     tableBody2.appendChild(row2);
