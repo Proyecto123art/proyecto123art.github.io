@@ -3,67 +3,61 @@ const readApiKey = 'DYU0KXMXCWWKE0LM'; // Reemplaza con tu Read API Key
 
 // Función para obtener los datos de ThingSpeak
 function fetchData() {
-    const url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${readApiKey}&results=2`;
-    
+    const url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${readApiKey}&results=10`; // Obtener los últimos 10 datos para asegurarnos de que hay suficientes
+
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const boya1 = data.feeds[0];
-            const boya2 = data.feeds[1];
+            // Obtener solo los últimos 5 datos para Boya 1 y Boya 2
+            const last5Boyas = data.feeds.slice(-5); // Obtiene los últimos 5 registros
 
-            // Actualizar Boya 1
-            document.getElementById('temperatura-valor1').innerText = boya1.field1 + '°C';
-            document.getElementById('presion-valor1').innerText = boya1.field2 + ' hPa';
-            document.getElementById('altitud-valor1').innerText = boya1.field3 + ' m';
-            document.getElementById('humedad-valor1').innerText = boya1.field4 + '%';
+            // Limpiar las tablas antes de agregar nuevos datos
+            limpiarTabla('data-table-boya1');
+            limpiarTabla('data-table-boya2');
 
-            // Actualizar Boya 2
-            document.getElementById('temperatura-valor2').innerText = boya2.field5 + '°C';
-            document.getElementById('presion-valor2').innerText = boya2.field6 + ' hPa';
-            document.getElementById('altitud-valor2').innerText = boya2.field7 + ' m';
-            document.getElementById('humedad-valor2').innerText = boya2.field8 + '%';
-
-            // Llenar las tablas con los datos de cada boya
-            llenarTablaBoya1(boya1);
-            llenarTablaBoya2(boya2);
+            // Llenar las tablas con los últimos 5 registros
+            last5Boyas.forEach(boya => {
+                llenarTablaBoya1(boya);
+                llenarTablaBoya2(boya);
+            });
         })
         .catch(error => console.error('Error fetching data:', error));
 }
 
-// Función para llenar tabla de Boya 1
-function llenarTablaBoya1(boya1) {
+// Función para limpiar la tabla antes de agregar nuevos datos
+function limpiarTabla(idTabla) {
+    const tableBody = document.getElementById(idTabla);
+    tableBody.innerHTML = ''; // Limpiar el contenido existente de la tabla
+}
+
+// Función para llenar la tabla de Boya 1
+function llenarTablaBoya1(boya) {
     const tableBody1 = document.getElementById('data-table-boya1');
     
-    // Limpiar la tabla antes de agregar nuevas filas
-    tableBody1.innerHTML = '';
-
     // Crear la fila para Boya 1
     const row1 = document.createElement('tr');
     row1.innerHTML = `
-        <td>${boya1.field1}°C</td>
-        <td>${boya1.field2} hPa</td>
-        <td>${boya1.field3} m</td>
-        <td>${boya1.field4}%</td>
-        <td>${new Date(boya1.created_at).toLocaleString()}</td>
+        <td>${boya.field1}°C</td>
+        <td>${boya.field2} hPa</td>
+        <td>${boya.field3} m</td>
+        <td>${boya.field4}%</td>
+        <td>${new Date(boya.created_at).toLocaleString()}</td>
     `;
     tableBody1.appendChild(row1);
 }
 
-// Función para llenar tabla de Boya 2
-function llenarTablaBoya2(boya2) {
+// Función para llenar la tabla de Boya 2
+function llenarTablaBoya2(boya) {
     const tableBody2 = document.getElementById('data-table-boya2');
     
-    // Limpiar la tabla antes de agregar nuevas filas
-    tableBody2.innerHTML = '';
-
     // Crear la fila para Boya 2
     const row2 = document.createElement('tr');
     row2.innerHTML = `
-        <td>${boya2.field5}°C</td>
-        <td>${boya2.field6} hPa</td>
-        <td>${boya2.field7} m</td>
-        <td>${boya2.field8}%</td>
-        <td>${new Date(boya2.created_at).toLocaleString()}</td>
+        <td>${boya.field5}°C</td>
+        <td>${boya.field6} hPa</td>
+        <td>${boya.field7} m</td>
+        <td>${boya.field8}%</td>
+        <td>${new Date(boya.created_at).toLocaleString()}</td>
     `;
     tableBody2.appendChild(row2);
 }
