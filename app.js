@@ -1,6 +1,7 @@
 const channelId = '2688654'; // Reemplaza con tu ID de canal de ThingSpeak
 const readApiKey = 'DYU0KXMXCWWKE0LM'; // Reemplaza con tu Read API Key
 
+// Función para obtener los datos de ThingSpeak
 function fetchData() {
     const url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${readApiKey}&results=2`;
     
@@ -29,6 +30,7 @@ function fetchData() {
         .catch(error => console.error('Error fetching data:', error));
 }
 
+// Función para llenar tabla de Boya 1
 function llenarTablaBoya1(boya1) {
     const tableBody1 = document.getElementById('data-table-boya1');
     
@@ -47,6 +49,7 @@ function llenarTablaBoya1(boya1) {
     tableBody1.appendChild(row1);
 }
 
+// Función para llenar tabla de Boya 2
 function llenarTablaBoya2(boya2) {
     const tableBody2 = document.getElementById('data-table-boya2');
     
@@ -64,6 +67,9 @@ function llenarTablaBoya2(boya2) {
     `;
     tableBody2.appendChild(row2);
 }
+
+// Llamar a fetchData cada 10 segundos para actualizar los datos en tiempo real
+setInterval(fetchData, 10000);
 
 // Llamar a fetchData una vez al cargar la página
 fetchData();
