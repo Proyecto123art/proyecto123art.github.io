@@ -109,6 +109,41 @@ header{
         color: #f0a500; /* Cambia el color del texto */
     }
 }
+
+#tabla-boya1, #tabla-boya2 {
+    margin-top: 2rem;
+    background-color: #162447;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#tabla-boya1 h2, #tabla-boya2 h2 {
+    color: #f0a500;
+    text-align: center;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+}
+
+.content-table th, .content-table td {
+    padding: 0.5rem;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-table th {
+    background-color: #0d2e81;
+}
+
+.content-table tbody tr:hover {
+    background-color: #3f94e4;
+}
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
     #contenedor-principal {
