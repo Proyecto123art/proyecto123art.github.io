@@ -1,9 +1,12 @@
 const channelId = '2688654'; // Reemplaza con tu ID de canal de ThingSpeak
 const readApiKey = 'DYU0KXMXCWWKE0LM'; // Reemplaza con tu Read API Key
 
+let allBoyas = []; // Variable global para almacenar todos los registros
+let last5Boyas = []; // Variable global para almacenar los últimos 5 registros
+
 // Función para obtener los datos de ThingSpeak
 function fetchData() {
-    const url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${encodeURIComponent(readApiKey)}&results=5`;
+    const url = `https://api.thingspeak.com/channels/${channelId}/feeds.json?api_key=${encodeURIComponent(readApiKey)}&results=100`; // Cambiado a 100 para almacenar más registros
 
     // Mostrar la animación de carga
     document.getElementById("loading").style.display = "block";
@@ -11,7 +14,9 @@ function fetchData() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            const last5Boyas = data.feeds.slice(-5).reverse(); // Últimos 5 registros para las tablas
+            // Almacenar todos los registros
+            allBoyas = data.feeds;
+            last5Boyas = allBoyas.slice(-5).reverse(); // Obtener los últimos 5 registros
 
             // Limpiar las tablas antes de agregar nuevos datos
             limpiarTabla('data-table-boya1');
@@ -19,38 +24,13 @@ function fetchData() {
 
             // Llenar las tablas con los últimos 5 registros
             last5Boyas.forEach(boya => {
-                llenarTablaBoya1(boya);
-                llenarTablaBoya2(boya);
+                llenarTabla(boya, 'data-table-boya1', 'field1', 'field2', 'field3', 'field4');
+                llenarTabla(boya, 'data-table-boya2', 'field5', 'field6', 'field7', 'field8');
             });
 
             // Actualizar los valores actuales para Boya 1 y Boya 2
-            if (last5Boyas.length > 0) {
-                const boya1 = last5Boyas[0];
-                document.getElementById('temperatura-valor1').innerText = boya1.field1 + ' °C';
-                document.getElementById('presion-valor1').innerText = boya1.field2 + ' hPa';
-                document.getElementById('altitud-valor1').innerText = boya1.field3 + ' m';
-                document.getElementById('humedad-valor1').innerText = boya1.field4 + ' %';
-
-                // Actualizar colores de pelotitas para Boya 1
-                document.querySelector('.temperatura1').style.backgroundColor = actualizarColorCirculo(boya1.field1, 'temperatura');
-                document.querySelector('.presion1').style.backgroundColor = actualizarColorCirculo(boya1.field2, 'presion');
-                document.querySelector('.altitud1').style.backgroundColor = actualizarColorCirculo(boya1.field3, 'altitud');
-                document.querySelector('.humedad1').style.backgroundColor = actualizarColorCirculo(boya1.field4, 'humedad');
-            }
-
-            if (last5Boyas.length > 1) {
-                const boya2 = last5Boyas[1];
-                document.getElementById('temperatura-valor2').innerText = boya2.field5 + ' °C';
-                document.getElementById('presion-valor2').innerText = boya2.field6 + ' hPa';
-                document.getElementById('altitud-valor2').innerText = boya2.field7 + ' m';
-                document.getElementById('humedad-valor2').innerText = boya2.field8 + ' %';
-
-                // Actualizar colores de pelotitas para Boya 2
-                document.querySelector('.temperatura2').style.backgroundColor = actualizarColorCirculo(boya2.field5, 'temperatura');
-                document.querySelector('.presion2').style.backgroundColor = actualizarColorCirculo(boya2.field6, 'presion');
-                document.querySelector('.altitud2').style.backgroundColor = actualizarColorCirculo(boya2.field7, 'altitud');
-                document.querySelector('.humedad2').style.backgroundColor = actualizarColorCirculo(boya2.field8, 'humedad');
-            }
+            actualizarValoresYColores(0, 'temperatura-valor1', 'presion-valor1', 'altitud-valor1', 'humedad-valor1', 'temperatura1', 'presion1', 'altitud1', 'humedad1');
+            actualizarValoresYColores(1, 'temperatura-valor2', 'presion-valor2', 'altitud-valor2', 'humedad-valor2', 'temperatura2', 'presion2', 'altitud2', 'humedad2');
 
             // Ocultar la animación de carga
             document.getElementById("loading").style.display = "none"; // Ocultar animación
@@ -61,29 +41,33 @@ function fetchData() {
         });
 }
 
-// Función para llenar la tabla de Boya 1
-function llenarTablaBoya1(boya) {
-    const table = document.getElementById('data-table-boya1');
+// Función para llenar la tabla
+function llenarTabla(boya, tableId, field1, field2, field3, field4) {
+    const table = document.getElementById(tableId);
     if (table) { // Verificación de existencia
         const row = table.insertRow();
-        row.insertCell(0).innerText = boya.field1 + ' °C';
-        row.insertCell(1).innerText = boya.field2 + ' hPa';
-        row.insertCell(2).innerText = boya.field3 + ' m';
-        row.insertCell(3).innerText = boya.field4 + ' %';
+        row.insertCell(0).innerText = boya[field1] + ' °C';
+        row.insertCell(1).innerText = boya[field2] + ' hPa';
+        row.insertCell(2).innerText = boya[field3] + ' m';
+        row.insertCell(3).innerText = boya[field4] + ' %';
         row.insertCell(4).innerText = new Date(boya.created_at).toLocaleString();
     }
 }
 
-// Función para llenar la tabla de Boya 2
-function llenarTablaBoya2(boya) {
-    const table = document.getElementById('data-table-boya2');
-    if (table) { // Verificación de existencia
-        const row = table.insertRow();
-        row.insertCell(0).innerText = boya.field5 + ' °C';
-        row.insertCell(1).innerText = boya.field6 + ' hPa';
-        row.insertCell(2).innerText = boya.field7 + ' m';
-        row.insertCell(3).innerText = boya.field8 + ' %';
-        row.insertCell(4).innerText = new Date(boya.created_at).toLocaleString();
+// Función para actualizar los valores y colores
+function actualizarValoresYColores(index, tempId, presionId, altitudId, humedadId, tempClass, presionClass, altitudClass, humedadClass) {
+    if (last5Boyas.length > index) {
+        const boya = last5Boyas[index];
+        document.getElementById(tempId).innerText = boya[`field${index * 4 + 1}`] + ' °C';
+        document.getElementById(presionId).innerText = boya[`field${index * 4 + 2}`] + ' hPa';
+        document.getElementById(altitudId).innerText = boya[`field${index * 4 + 3}`] + ' m';
+        document.getElementById(humedadId).innerText = boya[`field${index * 4 + 4}`] + ' %';
+
+        // Actualizar colores de pelotitas
+        document.querySelector(`.${tempClass}`).style.backgroundColor = actualizarColorCirculo(boya[`field${index * 4 + 1}`], 'temperatura');
+        document.querySelector(`.${presionClass}`).style.backgroundColor = actualizarColorCirculo(boya[`field${index * 4 + 2}`], 'presion');
+        document.querySelector(`.${altitudClass}`).style.backgroundColor = actualizarColorCirculo(boya[`field${index * 4 + 3}`], 'altitud');
+        document.querySelector(`.${humedadClass}`).style.backgroundColor = actualizarColorCirculo(boya[`field${index * 4 + 4}`], 'humedad');
     }
 }
 
@@ -122,6 +106,38 @@ function actualizarColorCirculo(valor, tipo) {
     }
 }
 
+// Función para descargar todos los registros como CSV
+function descargarDatosCSV() {
+    // Verifica que allBoyas tenga datos
+    if (allBoyas.length === 0) {
+        alert('No hay datos disponibles para descargar.');
+        return;
+    }
+
+    // Convertir los datos a formato CSV
+    const csvRows = [];
+    // Obtener las cabeceras
+    const headers = Object.keys(allBoyas[0]);
+    csvRows.push(headers.join(','));
+
+    // Agregar cada fila de datos
+    for (const row of allBoyas) {
+        csvRows.push(headers.map(header => row[header]).join(','));
+    }
+
+    // Crear un Blob con los datos CSV
+    const csvString = csvRows.join('\n');
+    const blob = new Blob([csvString], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+
+    // Crear un enlace y hacer clic en él para descargar
+    const a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.setAttribute('download', 'datos_boyas.csv');
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
 // Llamar a fetchData cada 10 segundos
 setInterval(fetchData, 10000);
-
