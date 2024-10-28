@@ -1,0 +1,167 @@
+/* Configuración de fuente y margen */
+* {
+    margin: 0; /* Elimina el margen de todos los elementos */
+    padding: 0; /* Elimina el relleno de todos los elementos */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total de los elementos */
+    font-family: Arial, sans-serif; /* Establece Arial como la fuente por defecto */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Cambia la fuente del cuerpo a Poppins */
+    margin: 0; /* Elimina el margen del cuerpo */
+    padding: 0; /* Elimina el relleno del cuerpo */
+    color: #f0f0f0; /* Establece el color del texto en un tono gris claro */
+}
+
+/* Encabezado y Navegación */
+header {
+    background: linear-gradient(135deg, #000000, #0062ff); /* Gradiente de color para el fondo */
+    color: #ffd900; /* Color del texto en el encabezado */
+    padding: 3rem 2rem; /* Espaciado vertical (superior e inferior) en el encabezado */
+    text-align: center; /* Centra el texto en el encabezado */
+    transition: background-color 0.3s ease; /* Efecto de transición para el cambio de color de fondo */
+}
+
+nav ul li {
+    margin: 0 2rem; /* Espacio horizontal entre los elementos de la lista de navegación */
+}
+
+header h1 {
+    margin-bottom: 4rem; /* Espacio inferior en el título del encabezado */
+}
+
+header nav ul {
+    list-style: none; /* Elimina las viñetas de la lista */
+    display: flex; /* Usa Flexbox para alinear los elementos de la lista */
+    justify-content: center; /* Centra los elementos de la lista horizontalmente */
+    gap: 2rem; /* Espacio entre los elementos de la lista */
+}
+
+header nav a {
+    color: #ffe600; /* Color del texto de los enlaces en el encabezado */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-weight: bold; /* Hace que el texto de los enlaces sea negrita */
+}
+
+header nav a:hover {
+    color: #00b4d8; /* Cambia el color del enlace al pasar el ratón sobre él */
+}
+
+/* Sección de Inicio */
+.hero-section h2 {
+    font-size: 20rem; /* Tamaño de la fuente del subtítulo */
+    margin-bottom: 1rem; /* Espacio inferior en el subtítulo */
+}
+
+.hero-section p {
+    font-size: 1.2rem; /* Tamaño de la fuente del párrafo */
+    margin-bottom: 1.5rem; /* Espacio inferior en el párrafo */
+}
+
+.hero-section .btn {
+    display: inline-block; /* Permite que el botón tenga padding y se comporte como un bloque en línea */
+    padding: 0.75rem 1.5rem; /* Espaciado interno (vertical y horizontal) del botón */
+    background-color: #00b4d8; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    text-decoration: none; /* Elimina el subrayado del enlace del botón */
+    font-weight: bold; /* Hace que el texto del botón sea negrita */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    transition: background-color 0.3s ease; /* Efecto de transición para el cambio de color de fondo */
+}
+
+.hero-section .btn:hover {
+    background-color: #00a6ff; /* Cambia el color de fondo del botón al pasar el ratón sobre él */
+}
+
+/* Video de fondo */
+.background-video {
+    position: absolute; /* Posiciona el video en relación a su contenedor */
+    top: 0; /* Alinea el video al borde superior */
+    left: 0; /* Alinea el video al borde izquierdo */
+    width: 100%; /* Ancho del video al 100% del contenedor */
+    height: 100%; /* Altura del video al 100% del contenedor */
+    object-fit: cover; /* Mantiene la relación de aspecto y cubre el área del contenedor */
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+.hero-section {
+    position: relative; /* Establece un contexto para el posicionamiento absoluto de los hijos */
+    overflow: hidden; /* Oculta el desbordamiento de los elementos hijos */
+    height: 100vh; /* Establece la altura de la sección al 100% de la altura de la ventana */
+}
+
+.hero-section .content {
+    position: relative; /* Permite que el contenido tenga un z-index mayor */
+    text-align: center; /* Centra el texto del contenido */
+    z-index: 1; /* Coloca el contenido por encima del video */
+    padding: 15rem 2rem; /* Espaciado interno (superior/inferior y derecho/izquierdo) */
+    margin-top: 5rem; /* Espacio superior del contenido */
+}
+
+.hero-section .content h2 {
+    color: #000000; /* Color del texto del subtítulo en la sección de inicio */
+}
+
+.hero-section .content p {
+    color: #fffefe; /* Color del texto del párrafo en la sección de inicio */
+}
+
+.hero-section .content a {
+    color: #e4e4e4; /* Color del texto de los enlaces en la sección de inicio */
+}
+
+/* Pantallas grandes: Escritorios */
+@media (min-width: 1025px) {
+    .hero-section .content {
+        padding: 12rem 3rem; /* Ajusta el espaciado interno en pantallas grandes */
+        font-size: 1.2rem; /* Tamaño de fuente para el contenido en pantallas grandes */
+    }
+    
+    .hero-section .content h2 {
+        font-size: 3rem; /* Tamaño de la fuente del subtítulo en pantallas grandes */
+    }
+
+    .hero-section .content p {
+        font-size: 1.5rem; /* Tamaño de la fuente del párrafo en pantallas grandes */
+    }
+}
+
+/* Pantallas medianas: Tabletas y laptops */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero-section .content {
+        padding: 7rem 2rem; /* Ajusta el espaciado interno en pantallas medianas */
+        font-size: 1rem; /* Tamaño de fuente para el contenido en pantallas medianas */
+    }
+    
+    .hero-section .content h2 {
+        font-size: 2.5rem; /* Tamaño de la fuente del subtítulo en pantallas medianas */
+    }
+
+    .hero-section .content p {
+        font-size: 1.3rem; /* Tamaño de la fuente del párrafo en pantallas medianas */
+    }
+
+    nav ul li {
+        margin: 0 1rem; /* Espacio entre los elementos de la lista en pantallas medianas */
+    }
+}
+
+/* Pantallas pequeñas: Teléfonos móviles */
+@media (max-width: 767px) {
+    .hero-section .content {
+        padding: 3rem 1rem; /* Ajusta el espaciado interno en pantallas pequeñas */
+        font-size: 0.9rem; /* Tamaño de fuente para el contenido en pantallas pequeñas */
+    }
+    
+    .hero-section .content h2 {
+        font-size: 2.5rem; /* Tamaño de la fuente del subtítulo en pantallas pequeñas */
+    }
+
+    .hero-section .content p {
+        font-size: 1.1rem; /* Tamaño de la fuente del párrafo en pantallas pequeñas */
+    }
+
+    nav ul li {
+        margin: 0 0.5rem; /* Espacio entre los elementos de la lista en pantallas pequeñas */
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipo de Red de Monitoreo y Alerta</title>
+    <link rel="stylesheet" href="stylep.css">
+</head>
+<body>
+    <header>
+        <h1>Prototipo de Red de Monitoreo y Alerta de Factores Climatológicos</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../dtr/dtr.html">Datos en Tiempo Real</a></li>
+                <li><a href="../dr/datos.html">Datos Recolectados</a></li>
+                <li><a href="../td/detalles_boyas.html">Tablas de Datos</a></li>
+                <li><a href="../contacto/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Descripción del Proyecto</h2>
+        <p>Este proyecto, titulado "Prototipo de Red de Monitoreo y Alerta de Factores Climatológicos para el Servicio Nacional de Hidrografía Naval", está enfocado en mejorar la seguridad en la navegación en cuerpos de agua de Bolivia, especialmente en el Lago Titicaca. Mediante el uso de boyas meteorológicas equipadas con sensores, se recopilan datos de temperatura, presión atmosférica, humedad, y velocidad del viento. Estos datos se transmiten a una base de datos central a través de tecnología LoRa, donde se procesan para generar alertas tempranas en caso de condiciones climáticas adversas.</p>
+
+        <h2>Antecedentes</h2>
+        <p>El monitoreo de los cuerpos de agua ha sido una preocupación desde tiempos antiguos. Las primeras mediciones con boyas datan de los experimentos de Leonardo da Vinci. En la actualidad, el Servicio Nacional de Hidrografía Naval en Bolivia no cuenta con un sistema en tiempo real para monitorear factores climáticos y proporcionar alertas tempranas. La implementación de un sistema de boyas meteorológicas en el Lago Titicaca busca cubrir esta necesidad crucial para la seguridad de las embarcaciones.</p>
+
+        <h2>Planteamiento del Problema</h2>
+        <p>El principal problema es la falta de un sistema de monitoreo climatológico en tiempo real en Bolivia, lo que compromete la seguridad en la navegación. Sin un sistema confiable de alerta temprana, las embarcaciones están expuestas a condiciones meteorológicas peligrosas, como tormentas repentinas. El proyecto se pregunta: ¿cómo se podría mejorar la recolección y alerta de factores climatológicos que ayuden al Servicio Nacional de Hidrografía Naval?</p>
+
+        <h2>Justificación</h2>
+        <p>Este sistema es técnicamente relevante porque ofrece datos en tiempo real necesarios para planificar y gestionar recursos naturales, infraestructura y reducir riesgos para las comunidades cercanas. También es relevante desde una perspectiva académica, ya que aplica conocimientos de programación de microcontroladores, electrónica, y bases de datos, promoviendo una transferencia de conocimientos de la universidad hacia aplicaciones prácticas.</p>
+
+        <h2>Objetivos del Proyecto</h2>
+        <h3>Objetivo General</h3>
+        <p>Diseñar y desarrollar un prototipo de red de monitoreo y alerta de factores climatológicos para el Servicio Nacional de Hidrografía Naval, utilizando tecnología LoRa para la transmisión de datos en tiempo real.</p>
+
+        <h3>Objetivos Específicos</h3>
+        <ul>
+            <li>Identificar los parámetros climatológicos necesarios para el monitoreo.</li>
+            <li>Diseñar las estructuras de las boyas meteorológicas.</li>
+            <li>Desarrollar una interfaz de usuario para notificaciones y alertas de riesgo.</li>
+            <li>Procesar y analizar los datos recopilados por las boyas.</li>
+        </ul>
+
+        <h2>Metodología</h2>
+        <p>La metodología es de tipo aplicada y cuantitativa, ya que el proyecto se basa en la recolección y análisis de datos de sensores. Las boyas recopilan datos en tiempo real y los transmiten a través de una red LoRa a un servidor central donde se procesan para la emisión de alertas y análisis climático.</p>
+
+        <h2>Alcance del Proyecto</h2>
+        <ul>
+            <li>Monitoreo de condiciones climatológicas en el Estrecho de Tiquina en el Lago Titicaca.</li>
+            <li>Implementación de una interfaz gráfica en tiempo real para la visualización y emisión de alertas.</li>
+            <li>Prototipado de dos boyas con sensores avanzados adaptables para otros cuerpos de agua en Bolivia.</li>
+        </ul>
+
+        <h2>Arquitectura y Componentes del Sistema</h2>
+        <p>El proyecto utiliza tecnología LoRa para la comunicación de larga distancia y baja potencia entre las boyas y el servidor central. Cada boya incluye sensores para medir temperatura, humedad, presión y otros factores. La estructura del sistema incluye:</p>
+        <ul>
+            <li>Microcontrolador TTGO T-Beam V1.1 para conectar las boyas a la red LoRa.</li>
+            <li>Paneles solares para la autosuficiencia energética de las boyas.</li>
+            <li>Sensores de humedad, temperatura, y viento.</li>
+        </ul>
+
+        <h2>Imágenes de Componentes y Arquitectura</h2>
+        <figure>
+            <img src="./imagen/lora_arquitectura.jpg" alt="Arquitectura del sistema LoRa" width="400">
+            <figcaption>Figura 1. Arquitectura de red LoRa para el sistema de monitoreo.</figcaption>
+        </figure>
+        <figure>
+            <img src="./imagen/diagrama.jpg" alt="Componentes de la boya" width="400">
+            <figcaption>Figura 2. Diagrama de proyecto.</figcaption>
+        </figure>
+
+        <h2>Recursos y Presupuesto</h2>
+        <p>El costo estimado del proyecto es de 4,642.00 bolivianos, incluyendo la adquisición de materiales como microcontroladores, sensores y paneles solares. Se han realizado cotizaciones en tiendas de La Paz especializadas en electrónica.</p>
+
+        <h2>Cronograma de Actividades</h2>
+        <p>El proyecto tiene una duración de tres meses, en los cuales se realizarán actividades de diseño, construcción de las boyas, implementación de la interfaz y pruebas en campo.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Proyecto Boyas Marinas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

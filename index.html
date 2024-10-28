@@ -2,121 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos de Boyas Climáticas</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Recolección de Datos Climáticos - Estrecho de Tiquina</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navegación -->
     <header>
-        <h1>Monitoreo Climático con Boyas</h1>
+        <h1>Estrecho de Tiquina: Proyecto Climático</h1>
+        <nav>
+            <ul>
+
+                <li><a href="./dtr/dtr.html">Datos en Tiempo Real</a></li>
+                <li><a href="./dr/datos.html">Datos Recolectados</a></li>
+                <li><a href="./td/detalles_boyas.html">Tablas de Datos</a></li>
+                <li><a href="./proyecto/proyecto.html">Sobre el Proyecto</a></li>
+                <li><a href="./contacto/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     
-    <main>
-        <section id="contenedor-principal">
-            <!-- Imagen de la boya a la izquierda -->
-            <div id="imagen-boya">
-                <img src="200287-18995769-removebg-preview.gif" alt="Boya GIF" width="300" height="300">
-            </div>
-            
-            <!-- Contenedor de las boyas a la derecha -->
-            <div id="contenedor-boyas">
-                <!-- Columna de Boya 1 -->
-                <div id="boya1" class="zona">
-                    <h2>Boya 1</h2>
-                    <div class="medidores">
-                        <div class="medidor">
-                            <h3>Temperatura</h3>
-                            <h1 id="temperatura-valor1">-- °C</h1>
-                        </div>
-                        <div class="medidor">
-                            <h3>Presión</h3>
-                            <h1 id="presion-valor1">-- hPa</h1>
-                        </div>
-                        <div class="medidor">
-                            <h3>Altitud</h3>
-                            <h1 id="altitud-valor1">-- m</h1>
-                        </div>
-                        <div class="medidor">
-                            <h3>Humedad</h3>
-                            <h1 id="humedad-valor1">-- %</h1>
-                        </div>
-                    </div>
-                </div>
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="hero-section">
+        <!-- Video de fondo -->
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="./imagenes/AdobeStock_340176686_Video_HD_Preview.mov" type="video/mp4">
 
-                <!-- Columna de Boya 2 -->
-                <div id="boya2" class="zona">
-                    <h2>Boya 2</h2>
-                    <div class="medidores">
-                        <div class="medidor">
-                            <h3>Temperatura</h3>
-                            <h1 id="temperatura-valor2">-- °C</h1>
-                        </div>
-                        <div class="medidor">
-                            <h3>Presión</h3>
-                            <h1 id="presion-valor2">-- hPa</h1>
-                        </div>
-                        <div class="medidor">
-                            <h3>Altitud</h3>
-                            <h1 id="altitud-valor2">-- m</h1>
-                        </div>
-                        <div class="medidor">
-                            <h3>Humedad</h3>
-                            <h1 id="humedad-valor2">-- %</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nueva sección de tabla de datos registrados -->
-        <section id="batabase">
-            <h1>Datos Registrados</h1>
-        
-            <!-- Tabla para Boya 1 -->
-            <div id="tabla-boya1">
-                <h2>Boya 1</h2>
-                <table class="content-table">
-                    <thead>
-                        <tr>
-                            <th>Temperatura (°C)</th>
-                            <th>Presion (hPa)</th>
-                            <th>Altura (m)</th>
-                            <th>Humedad (%)</th>
-                            <th>Fecha y Hora</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data-table-boya1">
-                        <!-- Las filas para Boya 1 serán insertadas dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-        
-            <!-- Tabla para Boya 2 -->
-            <div id="tabla-boya2">
-                <h2>Boya 2</h2>
-                <table class="content-table">
-                    <thead>
-                        <tr>
-                            <th>Temperatura (°C)</th>
-                            <th>Presion (hPa)</th>
-                            <th>Altura (m)</th>
-                            <th>Humedad (%)</th>
-                            <th>Fecha y Hora</th>
-                        </tr>
-                    </thead>
-                    <tbody id="data-table-boya2">
-                        <!-- Las filas para Boya 2 serán insertadas dinámicamente -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2024 Monitoreo Climático. Todos los derechos reservados.</p>
-    </footer>
-    <script src="app.js"></script>
+        </video>
+        <div class="content">
+            <h2>Recolección de Datos Climáticos para la Seguridad en el Estrecho de Tiquina</h2>
+            <p>Explora los datos en tiempo real y contribuye a mejorar la seguridad en la navegación de esta importante ruta.</p>
+            <a href="./dtr/dtr.html" class="btn">Ver Datos</a>
+        </div>
+    </section>
 </body>
 </html>

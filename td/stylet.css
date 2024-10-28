@@ -1,0 +1,255 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #000000, #1e3a8a, #003cffc5);
+    margin: 0;
+    padding: 0;
+    color: #f0f0f0;
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(135deg, #000000, #0062ff);
+    padding: 1rem; /* Espaciado interno del encabezado */
+    color: #facc15; /* Tono crema para el texto en el encabezado */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+    border-radius: 10px;
+}
+
+.weather-header h1 {
+    font-size: 3em; /* Cambia el tamaño del título */
+}
+
+.weather-header nav ul li a {
+    font-size: 1.5em; /* Cambia el tamaño de los enlaces */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #ffedd5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #14b8a6;
+}
+
+/* Secciones de boyas */
+.detalles {
+    margin: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, #000000, #0062ff, #00e1ff,#000000);
+}
+
+.medidor {
+    background-color: #004ab1;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #000000;
+    color: #ffffff;
+}
+
+/*jkj*/
+
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: rgb(255, 238, 0);
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.detalles {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detalles h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.medidor {
+    padding: 10px;
+    text-align: center;
+}
+
+.param-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.medidor h3 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+iframe {
+    width: 100%;
+    max-width: 450px;
+    height: 230px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+}
+
+/* Estilos de pie de página */
+footer {
+    background-color: #12223d; /* Color de fondo del pie de página */
+    color: #f9fafb; /* Color del texto en el pie de página */
+    text-align: center; /* Centra el texto en el pie de página */
+    padding: 1rem; /* Espaciado interno del pie de página */
+    position: relative; /* Posición relativa para efectos de superposición */
+}
+
+footer p {
+    margin: 0; /* Elimina margen predeterminado del pie de página */
+}
+
+/* Estilo de los enlaces en el pie de página */
+footer a {
+    color: #64ffda; /* Color de los enlaces en el pie de página */
+    text-decoration: none; /* Elimina subrayado de los enlaces */
+    transition: color 0.3s; /* Transición suave al cambiar el color del enlace */
+}
+
+footer a:hover {
+    color: #ffdd57; /* Color del enlace al pasar el mouse (amarillo) */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    #contenedor-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #imagen-boya {
+        order: -1;
+        width: 100%;
+    }
+
+    #contenedor-boyas {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    #boya1, #boya2, .caja-negra {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 18px;
+    }
+
+    #contenedor-principal {
+        flex-direction: row;
+        gap: 4rem;
+    }
+
+    #boya1, #boya2 {
+        width: 45%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+
+    #contenedor-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #boya1, #boya2 {
+        width: 80%;
+    }
+
+    .caja-negra {
+        width: 90%;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    #contenedor-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #boya1, #boya2 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .caja-negra {
+        width: 95%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boton-regresar {
+        width: 90%;
+    }
+}

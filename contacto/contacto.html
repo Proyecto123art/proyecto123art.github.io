@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="stylec.css">
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../dtr/dtr.html">Datos en Tiempo Real</a></li>
+                <li><a href="../dr/datos.html">Datos Recolectados</a></li>
+                <li><a href="../td/detalles_boyas.html">Tablas de Datos</a></li>
+                <li><a href="../proyecto/proyecto.html">Sobre el Proyecto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Docente encargado</h2>
+        <ul>
+            <li>Ing. Diego Apaza Butron – <a href="mailto:dapazab@univalle.edu">dapazab@univalle.edu</a></li>
+        </ul>
+        <h2>Dueño del Proyecto</h2>
+        <ul>
+            <li>Inda Gonzales Antonio Rafael  – <a href="mailto:iga2021608@est.univalle.edu">iga2021608@est.univalle.edu</a></li>
+        </ul>
+        <h2>Equipo de Investigación</h2>
+        <ul>
+            <li>Ayllón Cruz Jhonatan Alexander  – <a href="mailto:acj2025786@est.univalle.edu">acj2025786@est.univalle.edu</a></li>
+            <li>Laruta Calcina Mauricio – <a href="mailto:lcm2026693@est.univalle.edu">lcm2026693@est.univalle.edu</a></li>
+            <li>Quispe Suca Jhon Cristhian – <a href="mailto:qsj2026954@est.univalle.edu">qsj2026954@est.univalle.edu</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Formulario de Contacto</h2>
+        <form action="enviar_contacto.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Proyecto Boyas Marinas. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
