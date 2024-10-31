@@ -46,6 +46,22 @@ body {
     animation: rotate-three 1s linear infinite;
 }
 
+.seguro {
+    background-color: #4CAF50; /* Verde */
+    color: #ffffff; /* Texto blanco para mejor contraste */
+}
+
+.medianamente-seguro {
+    background-color: #ffd900c0; /* Amarillo */
+    color: #000000; /* Texto negro para mejor contraste */
+}
+
+.inseguro {
+    background-color: #F44336; /* Rojo */
+    color: #ffffff; /* Texto blanco para mejor contraste */
+}
+
+
 @keyframes rotate-one {
     0% {
         transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
